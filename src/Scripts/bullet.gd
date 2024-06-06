@@ -1,7 +1,7 @@
 extends Area2D
 
-export var speed := 10.0
-onready var smoketrail = $Smoketrail
+@export var speed := 10.0
+@onready var smoketrail = $Smoketrail
 
 var direction := Vector2.RIGHT
 var is_dead := false
@@ -9,7 +9,7 @@ var is_dead := false
 func _process(_delta):
 	if !is_dead:
 		position += direction * speed
-		smoketrail.add_point(global_position)
+		smoketrail.add_point_to(global_position)
 
 func _on_Bullet_body_entered(_body):
 	if !is_dead:
